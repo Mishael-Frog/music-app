@@ -1,3 +1,5 @@
+let progressEl = document.querySelector('#progress');
+
 let musicList = [
     {
         artist: "Unknown",
@@ -41,11 +43,11 @@ function handleAction(){
     if(isPlaying){
         currentMusic.pause();
         isPlaying = false;
-        controls.play.src = '../assets/play.png'
+        controls.play.src = './assets/play.png'
     }else{
         currentMusic.play();
         isPlaying = true;
-        controls.play.src = '../assets/pause.png'
+        controls.play.src = './assets/pause.png'
     }
 }
 
@@ -63,3 +65,10 @@ function handlePrev(){
 controls.play.addEventListener('click', handleAction);
 controls.next.addEventListener('click', handleNext);
 controls.prev.addEventListener('click', handlePrev);
+
+currentMusic.addEventListener('timeupdate',(e) => {
+    currentTime = e.target.currentTime;
+    console.log(currentTime);
+    let percent = (currentTime / currentMusic.duration) * 100;
+    progressEl.style.width = `${percent}%`;
+})
