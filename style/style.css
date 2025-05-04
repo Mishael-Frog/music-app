@@ -1,0 +1,144 @@
+@import url(./button.css);
+    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: black;
+    color: white;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 100px;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app{
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+    animation: fadeIn 2s 1;
+
+    & h2{
+        font-family: 'Arial';
+        font-size: 2rem;
+    }
+}
+
+.design-container{
+    position: absolute;
+    left: calc(50% - 150px);
+    top: calc(50% - 150px);
+    z-index: -1;
+}
+
+.design-item{
+    width: 300px;
+    height: 300px;
+    background: blue;
+    border-radius: 20% 40% 70%  140%;
+    position: absolute;
+    animation: morph 15s infinite linear,rotateColors 10s infinite linear;
+    filter: blur(25px);
+}
+
+.controls{
+    & button{
+        background: none;
+        border: none;
+        outline: none;
+    
+
+    &:hover{
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+    & img {
+        width: 35px;
+    }
+}
+
+}
+
+footer{
+    height: 60px;
+    text-align: center;
+    color: white;
+    align-items: center;
+    font-family: Arial;
+    font-size: 14px;
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes morph{
+    0%{
+        border-radius: 40% 60% 70% 30% / 30% 70% 60% 40%;
+        transform: translate(0,0) scale(1);
+    }
+    25%{
+        border-radius: 60% 40% 50% 50% / 50% 60% 40% 60%;
+        transform: translate(-50px,20px) scale(1.1);
+    }
+    50%{
+        border-radius: 50% 50% 60% 40% / 60% 50% 40% 50%;
+        transform: translate(50px,-30px) scale(1.2);
+    }
+    75%{
+        border-radius: 70% 30% 40% 60% / 40% 60% 30% 70%;
+        transform: translate(-20px,-50px) scale(1.1);
+    }
+    100%{
+        border-radius: 40% 60% 70% 30% / 30% 70% 60% 40%;
+        transform: translate(0,0) scale(1);
+    }
+}
+
+@keyframes rotateColors{
+    0%{
+        background: red;
+    }
+    20%{
+        background: orange;
+    }
+    30%{
+        background: yellow;
+    }
+    40%{
+        background: green;
+    }
+    55%{
+        background: blue;
+    }
+    70%{
+        background: blue;
+    }
+    85%{
+        background: blueviolet;
+    }
+    100%{
+        background: red;
+    }
+}
